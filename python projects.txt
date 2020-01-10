@@ -1,0 +1,15 @@
+# import necessary modules
+import csv
+
+with open('C:\q1w.csv', 'rt')as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row)
+============================================================
+
+# import necessary modules
+import csv
+
+reader = csv.DictReader(open("C:\q1w.csv"))
+for raw in reader:
+    print(raw)
