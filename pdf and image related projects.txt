@@ -1,0 +1,259 @@
+==============================================================================================
+1-open pdf in python command
+==============================================================================================
+
+import webbrowser
+webbrowser.open_new(r'file://C:\Users\Original One\PycharmProjects\project.py\Ambuj.pdf')
+---------------------------------------------------------------------------------------------
+
+import os
+os.startfile('c:\Ambuj.pdf')
+
+==============================================================================================
+
+
+================================================================================================
+
+2-Reading pdf file in python by using pypdf2 packages
+
+================================================================================================
+# importing required modules
+import PyPDF2
+
+# creating a pdf file object
+pdfFileObj = open('C:\Ambuj.pdf', 'rb')
+
+# creating a pdf reader object
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+
+# printing number of pages in pdf file
+print(pdfReader.numPages)
+
+# creating a page object
+pageObj = pdfReader.getPage(0)
+
+# extracting text from page
+print(pageObj.extractText())
+
+# closing the pdf file object
+pdfFileObj.close()
+
+--------------------------------------------------------------------------------------------------------
+
+=================================================================================================
+
+3- #Rotating an Image: The image rotation needs angle as parameter to get the image rotated
+========================================================================================
+
+
+from PIL import Image
+
+
+def main():
+	try:
+		# Relative Path
+		img = Image.open("39.jpg")
+
+		# Angle given
+		img = img.rotate(180)
+
+		# Saved in the same relative location
+		img.save("40.jpg")
+	except IOError:
+		pass
+
+
+if __name__ == "__main__":
+	main()
+
+==============================================================================================================
+
+4- #Cropping an Image
+
+=====================================================================================================
+
+from PIL import Image
+
+
+def main():
+    try:
+        # Relative Path
+        img = Image.open("39.jpg")
+        width, height = img.size
+
+        area = (0, 0, width / 2, height / 2)
+        img = img.crop(area)
+
+        # Saved in the same relative location
+        img.save("41.jpg")
+
+    except IOError:
+        pass
+
+
+if __name__ == "__main__":
+    main()
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+==============================================================================================================
+
+#Pasting an image on another image
+
+==============================================================================================================
+
+from PIL import Image
+
+
+def main():
+    try:
+        # Relative Path
+        # Image on which we want to paste
+        img = Image.open("39.jpg")
+
+        # Relative Path
+        # Image which we want to paste
+        img2 = Image.open("40.jpg")
+        img.paste(img2, (50, 50))
+
+        # Saved in the same relative location
+        img.save("1.jpg")
+    except IOError:
+        pass
+
+
+if __name__ == "__main__":
+    main()
+
+
+-----------------------------------------------------------------------------------------
+
+
+=============================================================================================
+
+#Transposing an Image: This feature gives us the mirror image of an image
+
+================================================================================================
+
+from PIL import Image
+
+
+def main():
+    try:
+        # Relative Path
+        img = Image.open("40.jpg")
+
+        # transposing image
+        transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
+
+        # Save transposed image
+        transposed_img.save("2.jpg")
+    except IOError:
+        pass
+
+
+if __name__ == "__main__":
+    main()
+
+-------------------------------------------------------------------------------------------------
+
+=====================================================================================================
+
+#Creating a thumbnail:
+
+========================================================================================================
+
+from PIL import Image
+
+
+def main():
+    try:
+        # Relative Path
+        img = Image.open("40.jpg")
+
+        # In-place modification
+        img.thumbnail((200, 200))
+
+        img.save("thumb.jpg")
+    except IOError:
+        pass
+
+
+if __name__ == "__main__":
+    main()
+-------------------------------------------------------------------------------------------------------
+
+
+======================================================================
+Image printinmg                                           ////////////
+                                                         ////////////
+======================================================================
+
+from scipy import ndimage, misc
+from matplotlib import pyplot as plt
+panda = misc.face()
+#rotatation function of scipy for image – image rotated 135 degree
+panda_rotate = ndimage.rotate(panda, 135)
+plt.imshow(panda_rotate)
+plt.show()
+
+======================================================================
+
+
+from scipy import misc
+from matplotlib import pyplot as plt
+import numpy as np
+#get face image of panda from misc package
+panda = misc.face()
+#plot or show image of face
+plt.imshow( panda )
+plt.show()
+
+=======================================================================================================================================================================
+
+
+=======================================================================
+                                                             ///////////
+SINE WAVE                                                   ///////////
+                                                           ///////////
+=======================================================================
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(0, 10, 0.2)
+y = np.cos(x)
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
+
+
+======================================================================
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0, 2, 100)
+
+plt.plot(x, x, label='linear')
+plt.plot(x, x**2, label='quadratic')
+plt.plot(x, x**3, label='cubic')
+
+plt.xlabel('x label')
+plt.ylabel('y label')
+
+plt.title("Simple Plot")
+
+plt.legend()
+
+plt.show()
+
+======================================================================
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
+fig, ax_lst = plt.subplots(2, 2)  # a figure with a 2x2 grid of Axes
+
+plt.show()
+
+======================================================================
+
