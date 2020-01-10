@@ -1,0 +1,548 @@
+=======================================================
+plot/bar/barh                           ///////////////  What Is Python Matplotlib?
+Types Of Plots
+–  Bar Graph
+– Histogram
+– Scatter Plot
+– Area Plot
+– Pie Chart
+
+ Working With Multiple Plots
+                                       ///////////////
+=======================================================
+
+import matplotlib.pyplot as plt
+import numpy as np
+t=np.arange(0,5,0.2)
+plt.plot(t,t,'r--',t,t**3,'b^',t,t**2,'gs')
+plt.show()
+
+=======================================================
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4,5])
+plt.xlabel('Actual birth weight')
+plt.ylabel('Estimated birth weight')
+plt.show()
+=======================================================
+import matplotlib.pyplot as plt
+import csv
+
+x = []
+y = []
+
+with open("C:\q3w.csv", 'r') as csvfile:
+    plots = csv.reader(csvfile, delimiter=',')
+    for row in plots:
+        x.append(int(row[0]))
+        y.append(int(row[1]))
+
+plt.plot(x, y, marker='o')
+
+plt.title('Data from the CSV File: People and Expenses')
+
+plt.xlabel('Number of People')
+plt.ylabel('Expenses')
+
+plt.show()
+========================================================
+
+
+import matplotlib.pyplot as plt
+
+slices = [10,3,4,14]
+activities = ['sleeping','eating','working','playing']
+cols = ['c','m','r','b']
+
+plt.pie(slices,
+        labels=activities,
+        colors=cols,
+        startangle=90,
+        shadow= True,
+        explode=(0,0.1,0,0),
+        autopct='%2.1f%%')
+
+plt.title('Interesting Graph\nCheck it out')
+plt.show()
+
+
+==========================================================
+wrong????????????????????????????????!!!!!!!!!!!!!!!!!!!
+==========================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+df =  pd.read_csv('C:\q4w.csv')
+country_data = df["country"]
+medal_data = df["gold_medal"]
+colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#8c564b"]
+explode = (0.1, 0, 0, 0, 0)  
+plt.pie(medal_data, labels=country_data, explode=explode, colors=colors,
+autopct='%1.1f%%', shadow=True, startangle=140)
+plt.title("Gold medal achievements of five most successful\n"+"countries in 2016 Summer Olympics")
+plt.show()
+
+=======================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+girls_grades = [89, 90, 70, 89, 100, 80, 90, 100, 80, 34]
+boys_grades = [30, 29, 49, 48, 100, 48, 38, 45, 20, 30]
+grades_range = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+plt.scatter(grades_range, girls_grades, color='r')
+plt.scatter(grades_range, boys_grades, color='g')
+plt.xlabel('Grades Range')
+plt.ylabel('Grades Scored')
+plt.show()
+
+=========================================================================
+
+from matplotlib import pyplot as plt
+from matplotlib import style
+
+style.use('ggplot')
+
+x = [5,8,10]
+y = [12,16,6]
+
+x2 = [6,9,11]
+y2 = [6,15,7]
+
+# can plot specifically, after just showing the defaults:
+plt.plot(x,y,linewidth=5)
+plt.plot(x2,y2,linewidth=5)
+
+plt.title('Epic Info')
+plt.ylabel('Y axis')
+plt.xlabel('X axis')
+
+plt.show()
+
+=======================================================================
+
+#Plotting Data
+---------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+
+X = [590,540,740,130,810,300,320,230,470,620,770,250]
+Y = [32,36,39,52,61,72,77,75,68,57,48,48]
+
+plt.scatter(X,Y)
+plt.show()
+
+---------------------------------------------------------------------------------------------------------
+==============================================================================================================
+
+#Adding Titles and Labels
+
+========================================================================================================
+
+import matplotlib.pyplot as plt
+
+X = [590,540,740,130,810,300,320,230,470,620,770,250]
+Y = [32,36,39,52,61,72,77,75,68,57,48,48]
+
+plt.scatter(X,Y)
+
+plt.title('Relationship Between Temperature and Iced Coffee Sales')
+
+plt.show()
+
+--------------------------------------------------------------------------------------------------
+
+
+import matplotlib.pyplot as plt
+
+
+X = [590,540,740,130,810,300,320,230,470,620,770,250]
+Y = [32,36,39,52,61,72,77,75,68,57,48,48]
+
+#scatter plot
+plt.scatter(X, Y, s=60, c='red', marker='^')
+
+#change axes ranges
+plt.xlim(0,1000)
+plt.ylim(0,100)
+
+#add title
+plt.title('Relationship Between Temperature and Iced Coffee Sales')
+
+#add x and y labels
+plt.xlabel('Cups of Iced Coffee Sold')
+plt.ylabel('Temperature in Fahrenheit')
+
+#show plot
+plt.show()
+
+--------------------------------------------------------------------------------------------------------------------
+
+from matplotlib import pyplot as plt
+
+# Plotting to our canvas
+
+plt.plot([1, 2, 3], [4, 5, 1])
+
+# Showing what we plotted
+
+plt.show()
+
+-------------------------------------------------------------------------------------------------------------------
+
+from matplotlib import pyplot as plt
+
+x = [5, 2, 7]
+y = [2, 16, 4]
+plt.plot(x, y)
+plt.title('Info')
+plt.ylabel('Y axis')
+plt.xlabel('X axis')
+plt.show()
+
+-------------------------------------------------------------------------------
+
+from matplotlib import pyplot as plt
+from matplotlib import style
+
+style.use('ggplot')
+x = [5, 8, 10]
+y = [12, 16, 6]
+x2 = [6, 9, 11]
+y2 = [6, 15, 7]
+plt.plot(x, y, 'g', label='line one', linewidth=5)
+plt.plot(x2, y2, 'c', label='line two', linewidth=5)
+plt.title('Epic Info')
+plt.ylabel('Y axis')
+plt.xlabel('X axis')
+plt.legend()
+plt.grid(True, color='k')
+plt.show()
+
+---------------------------------------------------------------------
+===============================================================================
+
+#Python Matplotlib: Bar Graph
+
+================================================================================
+
+from matplotlib import pyplot as plt
+ 
+plt.bar([0.25,1.25,2.25,3.25,4.25],[50,40,70,80,20],
+label="BMW",width=.5)
+plt.bar([.75,1.75,2.75,3.75,4.75],[80,20,20,50,60],
+label="Audi", color='r',width=.5)
+plt.legend()
+plt.xlabel('Days')
+plt.ylabel('Distance (kms)')
+plt.title('Information')
+plt.show()
+
+--------------------------------------------------------------------------------------
+
+===================================================================================
+
+#Python Matplotlib – Histogram
+
+====================================================================================
+
+import matplotlib.pyplot as plt
+population_age = [22,55,62,45,21,22,34,42,42,4,2,102,95,85,55,110,120,70,65,55,111,115,80,75,65,54,44,43,42,48]
+bins = [0,10,20,30,40,50,60,70,80,90,100]
+plt.hist(population_age, bins, histtype='bar', rwidth=0.8)
+plt.xlabel('age groups')
+plt.ylabel('Number of people')
+plt.title('Histogram')
+plt.show()
+
+
+-----------------------------------------------------------------------------------------
+
+#Python Matplotlib : Scatter Plot
+
+=========================================================================================================
+
+import matplotlib.pyplot as plt
+x = [1,1.5,2,2.5,3,3.5,3.6]
+y = [7.5,8,8.5,9,9.5,10,10.5]
+ 
+x1=[8,8.5,9,9.5,10,10.5,11]
+y1=[3,3.5,3.7,4,4.5,5,5.2]
+ 
+plt.scatter(x,y, label='high income low saving',color='r')
+plt.scatter(x1,y1,label='low income high savings',color='b')
+plt.xlabel('saving*100')
+plt.ylabel('income*1000')
+plt.title('Scatter Plot')
+plt.legend()
+plt.show()
+
+----------------------------------------------------------------------------------------
+
+#Python Matplotlib : Area Plot
+
+===================================================================================
+
+import matplotlib.pyplot as plt
+days = [1,2,3,4,5]
+  
+ sleeping =[7,8,6,11,7]
+ eating = [2,3,4,3,2]
+ working =[7,8,7,2,2]
+ playing = [8,5,7,8,13]
+  
+ plt.plot([],[],color='m', label='Sleeping', linewidth=5)
+ plt.plot([],[],color='c', label='Eating', linewidth=5)
+ plt.plot([],[],color='r', label='Working', linewidth=5)
+ plt.plot([],[],color='k', label='Playing', linewidth=5)
+  
+ plt.stackplot(days, sleeping,eating,working,playing, colors=['m','c','r','k'])
+  
+ plt.xlabel('x')
+ plt.ylabel('y')
+ plt.title('Stack Plot')
+ plt.legend()
+ plt.show()
+
+---------------------------------------------------------------------------------------
+
+#Python Matplotlib : Pie Chart
+
+======================================================================================
+
+import matplotlib.pyplot as plt
+ 
+days = [1,2,3,4,5]
+ 
+sleeping =[7,8,6,11,7]
+eating = [2,3,4,3,2]
+working =[7,8,7,2,2]
+playing = [8,5,7,8,13]
+slices = [7,2,2,13]
+activities = ['sleeping','eating','working','playing']
+cols = ['c','m','r','b']
+ 
+plt.pie(slices,
+  labels=activities,
+  colors=cols,
+  startangle=90,
+  shadow= True,
+  explode=(0,0.1,0,0),
+  autopct='%1.1f%%')
+ 
+plt.title('Pie Plot')
+plt.show()
+
+------------------------------------------------------------------------------------------
+
+#Python Matplotlib : Working With Multiple Plots  (important)
+
+===========================================================================================
+
+import numpy as np
+import matplotlib.pyplot as plt
+ 
+def f(t):
+    return np.exp(-t) * np.cos(2*np.pi*t)
+t1 = np.arange(0.0, 5.0, 0.1)
+t2 = np.arange(0.0, 5.0, 0.02)
+plt.subplot(221)
+plt.plot(t1, f(t1), 'bo', t2, f(t2))
+plt.subplot(222)
+plt.plot(t2, np.cos(2*np.pi*t2))
+plt.show()
+
+---------------------------------------------------------------------
+
+# Import the necessary packages and modules
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Prepare the data
+x = np.linspace(0, 10, 100)
+
+# Plot the data
+plt.plot(x, x, label='linear')
+
+# Add a legend
+plt.legend()
+
+# Show the plot
+plt.show()
+
+-------------------------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot([1, 2, 3, 4], [10, 20, 25, 30], color='lightblue', linewidth=3)
+ax.scatter([0.3, 3.8, 1.2, 2.5], [11, 25, 9, 26], color='darkgreen', marker='^')
+ax.set_xlim(0.5, 4.5)
+plt.show()
+
+
+--------------------------------------------------------------------------------
+
+
+# Import the necessary packages and modules
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create a Figure
+fig = plt.figure()
+
+# Set up Axes
+ax = fig.add_subplot(111)
+
+# Scatter the data
+ax.scatter(np.linspace(0, 1, 5), np.linspace(0, 5, 5))
+
+# Show the plot
+plt.show()
+
+-------------------------------------------------------------------------------
+
+# Import `pyplot` from `matplotlib`
+import matplotlib.pyplot as plt
+
+# Initialize the plot
+fig = plt.figure(figsize=(20,10))
+ax1 = fig.add_subplot(121)
+ax2 = fig.add_subplot(122)
+
+# or replace the three lines of code above by the following line:
+#fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20,10))
+
+# Plot the data
+ax1.bar([1,2,3],[3,4,5])
+ax2.barh([0.5,1,2.5],[0,1,2])
+
+# Show the plot
+plt.show()
+
+--------------------------------------------------------------------------------
+
+
+# Import `pyplot` from `matplotlib`
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Initialize the plot
+fig = plt.figure()
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
+
+# Plot the data
+ax1.bar([1,2,3],[3,4,5])
+ax2.barh([0.5,1,2.5],[0,1,2])
+ax2.axhline(0.45)
+ax1.axvline(0.65)
+ax3.scatter(np.linspace(0, 1, 5), np.linspace(0, 5, 5))
+
+# Delete `ax3`
+fig.delaxes(ax3)
+
+# Show the plot
+plt.show()
+
+----------------------------------------------------------------------------------------
+
+# Import the necessary packages and modules
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Uncomment following line to see the effect
+#mpl.rcParams['lines.linewidth'] = 5
+
+# Prepare the data
+x = np.linspace(0, 10, 100)
+
+# Plot the data
+plt.plot(x, x, label='linear')
+
+# Add a legend
+plt.legend()
+
+# Show the plot
+plt.show()
+
+--------------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+
+slices = [10,3,4,14]
+activities = ['sleeping','eating','working','playing']
+cols = ['c','m','r','b']
+
+plt.pie(slices,
+        labels=activities,
+        colors=cols,
+        startangle=90,
+        shadow= True,
+        explode=(0,0.1,0,0),
+        autopct='%2.1f%%')
+
+plt.title('Interesting Graph\nCheck it out')
+plt.show()
+
+--------------------------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4,5])
+plt.xlabel('Actual birth weight')
+plt.ylabel('Estimated birth weight')
+plt.show()
+
+--------------------------------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+import numpy as np
+t=np.arange(0,5,0.2)
+plt.plot(t,t,'r--',t,t**3,'b^',t,t**2,'gs')
+plt.show()
+
+
+-----------------------------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+
+x=[1,2,3,4,5]
+y=[100,200,300,400,500]
+
+plt.barh(x,y,color='r''g''b')
+plt.show()
+
+-----------------------------------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+
+x=[1,2,3,4,5]
+y=[100,200,300,400,500]
+
+plt.bar(x,y)
+plt.show()
+
+-----------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+plt.plot([2,3,4,5],[3,8,10,12],'gs')
+plt.show()
+
+----------------------------------------------------------------------------
+
+
+# Import `pyplot` from `matplotlib`
+import matplotlib.pyplot as plt
+# Initialize the plot
+fig = plt.figure()
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
+# Plot the data
+ax1.bar([1,2,3],[3,4,5])
+ax2.barh([0.5,1,2.5],[0,1,2])
+ax3.barh([0.5,1,2.5],[0,1,2])
+ax2.axhline(0.45)
+ax1.axvline(0.65)
+ax3.axvline(0.65)
+# Show the plot
+plt.show()
+=======================================================================================
+
