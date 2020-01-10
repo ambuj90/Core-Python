@@ -1,0 +1,71 @@
+a = "Hello, World!"
+print(a[1])
+
+b = "Hello, World!"
+print(b[2:5])
+b = "Hello, World!"
+print(b[-5:-2])
+
+a = "Hello, World!"
+print(len(a))
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
+
+txt = 'It\'s alright.'
+print(txt)
+
+print(bool("abc"))
+print(bool(123))
+print(bool(["apple", "cherry", "banana"]))
+
+bool(False)
+
+def my_function():
+  print("Hello from a function")
+
+my_function()
+
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+x = lambda a: a + 10
+print(x(5))
+x = lambda a, b: a * b
+print(x(5, 6))
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+
+print(mydoubler(11))
+
+cars = ["Ford", "Volvo", "BMW"]
+
+x = cars[0]
+
+print(x)
+
+
+
+cars = ["Ford", "Volvo", "BMW"]
+
+x = cars[0]
+print(x)
+
+###############For In #####
+cars = ["Ford", "Volvo", "BMW"]
+
+for x in cars:
+  print(x)
+  ############append###
+  cars = ["Ford", "Volvo", "BMW"]
+
+  cars.append("Honda")
+
+  print(cars)
+  ################Class
